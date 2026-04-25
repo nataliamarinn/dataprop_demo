@@ -1,0 +1,262 @@
+<!-- Inicio - Dataprop -->
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dataprop · Inicio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,wght@0,400;1,400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #101415;
+            background-image:
+                radial-gradient(circle at 2px 2px, rgba(91, 141, 239, 0.05) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+        .vignette {
+            box-shadow: inset 0 0 150px rgba(0,0,0,0.9);
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background: rgba(16, 20, 21, 0.6);
+            border: 1px solid rgba(91, 141, 239, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#001b40",
+                        "primary-container": "#5b8def",
+                        "inverse-on-surface": "#2d3133",
+                        "surface-container-high": "#272a2c",
+                        "tertiary": "#d6e3ff",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#b0c8f3",
+                        "tertiary-fixed-dim": "#a8c8ff",
+                        "secondary": "#5b8def",
+                        "inverse-primary": "#1759cf",
+                        "on-error-container": "#ffdad6",
+                        "surface-variant": "#323537",
+                        "secondary-fixed-dim": "#5b8def",
+                        "on-primary-fixed-variant": "#002e5b",
+                        "on-surface-variant": "#bec9c8",
+                        "on-secondary-fixed-variant": "#002e5b",
+                        "primary": "#a8c8ff",
+                        "on-primary": "#001b40",
+                        "on-surface": "#e0e3e5",
+                        "on-secondary-container": "#a8c8ff",
+                        "on-primary-fixed": "#001433",
+                        "primary-fixed-dim": "#5b8def",
+                        "outline-variant": "#3e4948",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#2f476b",
+                        "tertiary-fixed": "#d5e3ff",
+                        "on-tertiary": "#173153",
+                        "surface-bright": "#363a3b",
+                        "surface-container-low": "#191c1e",
+                        "outline": "#889392",
+                        "inverse-surface": "#e0e3e5",
+                        "on-secondary-fixed": "#001433",
+                        "surface": "#101415",
+                        "surface-tint": "#5b8def",
+                        "surface-container-lowest": "#0b0f10",
+                        "on-tertiary-container": "#3c5478",
+                        "background": "#101415",
+                        "secondary-fixed": "#a8c8ff",
+                        "surface-dim": "#101415",
+                        "on-tertiary-fixed": "#001b3b",
+                        "on-primary-container": "#0a47a8",
+                        "secondary-container": "#1759cf",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#a8c8ff",
+                        "surface-container": "#1d2022",
+                        "on-background": "#e0e3e5",
+                        "surface-container-highest": "#323537"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "128px",
+                        "gutter": "32px",
+                        "margin-page": "64px",
+                        "grid-unit": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "display-hero": ["Manrope"],
+                        "caption": ["Inter"],
+                        "body-bold": ["Inter"],
+                        "subtitle-italic": ["Newsreader"],
+                        "headline-h2": ["Manrope"],
+                        "body-main": ["Inter"],
+                        "headline-h1": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-hero": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "caption": ["13px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-bold": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "600"}],
+                        "subtitle-italic": ["20px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-main": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-950/60 backdrop-blur-[30px] h-20 shadow-none">
+<div class="flex justify-between items-center w-full max-w-7xl mx-auto px-6 md:px-12 h-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#5b8def] text-2xl" data-icon="analytics">analytics</span>
+<span class="text-2xl font-black text-slate-50 tracking-tighter font-['Manrope']">Dataprop</span>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#5b8def] border-b-2 border-[#5b8def] pb-1 font-['Manrope'] font-extrabold tracking-tight" href="index.html">Inicio</a>
+<a class="text-slate-300 font-medium hover:text-[#5b8def] transition-all duration-300 font-['Manrope'] tracking-tight" href="demo.html">Demo</a>
+<a class="text-slate-300 font-medium hover:text-[#5b8def] transition-all duration-300 font-['Manrope'] tracking-tight" href="demo_app.mp4" target="_blank">Demo app</a>
+<a class="text-slate-300 font-medium hover:text-[#5b8def] transition-all duration-300 font-['Manrope'] tracking-tight" href="nosotros.html">Nosotros</a>
+</nav>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="relative pt-32 px-6 max-w-7xl mx-auto overflow-hidden">
+<!-- Hero Section · texto + plano -->
+<section class="min-h-[618px] grid grid-cols-1 md:grid-cols-12 gap-10 items-center relative">
+<!-- Lado izquierdo: texto + CTAs -->
+<div class="md:col-span-6 flex flex-col gap-8 relative z-10">
+<div class="flex flex-col gap-4">
+<span class="font-caption text-caption uppercase tracking-[0.2em] text-secondary opacity-80">
+                    MAESTRÍA EN CIENCIA DE DATOS · UNIVERSIDAD AUSTRAL · 2026
+                </span>
+<h1 class="font-headline-h1 text-headline-h1 text-slate-50">
+                    Tu propiedad tiene un precio. <br/>
+                    Dataprop te lo <span class="font-subtitle-italic italic text-secondary">explica</span>.
+                </h1>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<a class="bg-secondary text-on-secondary px-8 py-4 font-body-bold text-body-bold rounded-lg hover:brightness-110 transition-all text-center" href="demo.html">
+                    Ver demo
+                </a>
+<a class="border border-secondary/40 text-slate-200 px-8 py-4 font-body-bold text-body-bold rounded-lg hover:bg-secondary/10 transition-all text-center" href="nosotros.html">
+                    Conocer al equipo
+                </a>
+</div>
+</div>
+<!-- Lado derecho: plano de Rosario -->
+<div class="md:col-span-6 relative">
+<div class="rounded-2xl overflow-hidden border border-[#5b8def]/30 glass-card">
+<img alt="Plano arquitectónico de Rosario" class="w-full h-auto block" src="home.png"/>
+</div>
+<span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-[0.32em] text-[#5b8def] bg-[#0a0e14]/85 backdrop-blur px-3 py-1.5 rounded-full">Arquitectura · Rosario</span>
+</div>
+<!-- Background Decorative Element -->
+<div class="absolute -top-20 -right-40 w-96 h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+</section>
+<!-- El Proyecto -->
+<section class="mt-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4">
+<h2 class="font-headline-h2 text-headline-h2 text-slate-50 sticky top-24">
+<span class="font-subtitle-italic italic text-secondary block">Cómo nació</span>
+                    El proyecto
+                </h2>
+</div>
+<div class="md:col-span-8 flex flex-col gap-8">
+<div class="glass-card p-8 rounded-xl">
+<p class="font-body-main text-body-main text-on-surface-variant leading-relaxed">
+                        Dataprop surge en el marco de la <span class="text-secondary font-semibold">Maestría en Ciencia de Datos de la Universidad Austral</span>. Es un proyecto de investigación académica que aplica machine learning sobre publicaciones públicas del mercado inmobiliario para estimar el valor de un departamento.
+                    </p>
+<p class="font-body-main text-body-main text-on-surface-variant mt-4 leading-relaxed">
+                        Más allá de devolver un número, el modelo explica los factores que empujan ese precio — ubicación, características de la propiedad, vecindad espacial y el lenguaje del aviso.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Tres Pilares -->
+<section class="mt-section-gap">
+<div class="flex flex-col gap-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-secondary/10 pb-8">
+<h2 class="font-headline-h2 text-headline-h2 text-slate-50">Tres pilares</h2>
+<span class="font-subtitle-italic italic text-secondary text-xl">Metodología de trabajo</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 01 -->
+<div class="glass-card p-8 rounded-xl group hover:border-secondary/50 transition-all flex flex-col gap-6">
+<span class="text-secondary/30 font-display-hero text-4xl">01</span>
+<h3 class="font-headline-h2 text-2xl text-slate-50 uppercase tracking-tighter">Observamos</h3>
+<p class="font-body-main text-on-surface-variant">Analizamos miles de publicaciones públicas del mercado inmobiliario en Rosario.</p>
+</div>
+<!-- Card 02 -->
+<div class="glass-card p-8 rounded-xl group hover:border-secondary/50 transition-all flex flex-col gap-6">
+<span class="text-secondary/30 font-display-hero text-4xl">02</span>
+<h3 class="font-headline-h2 text-2xl text-slate-50 uppercase tracking-tighter">Aprendemos</h3>
+<p class="font-body-main text-on-surface-variant">Un modelo de machine learning genera variables nuevas — ubicación, lenguaje del aviso, vecindad espacial.</p>
+</div>
+<!-- Card 03 -->
+<div class="glass-card p-8 rounded-xl group hover:border-secondary/50 transition-all flex flex-col gap-6">
+<span class="text-secondary/30 font-display-hero text-4xl">03</span>
+<h3 class="font-headline-h2 text-2xl text-slate-50 uppercase tracking-tighter">Explicamos</h3>
+<p class="font-body-main text-on-surface-variant">Cada estimación viene con los factores que la empujan. Sin caja negra.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Importante / Disclaimer -->
+<section class="mt-section-gap mb-section-gap">
+<div class="glass-card border-secondary/40 p-12 rounded-2xl relative overflow-hidden">
+<div class="absolute -left-12 -top-12 w-48 h-48 bg-secondary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-start gap-8">
+<div class="bg-secondary/10 p-4 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="history_edu">history_edu</span>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="font-headline-h2 text-2xl text-slate-50">Aviso académico</h3>
+<p class="font-body-main text-on-surface-variant max-w-3xl leading-relaxed italic border-l-2 border-secondary/20 pl-6">
+                            Dataprop es una herramienta de investigación académica desarrollada con fines exclusivamente educativos. No constituye una tasación profesional ni reemplaza el trabajo de un tasador matriculado. Los datos provienen de publicaciones públicas del mercado y los valores devueltos son estimaciones de referencia, sujetas al estado del mercado y a los datos disponibles al momento de la consulta. Toda decisión basada en estos datos es responsabilidad del usuario.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 border-t border-[#5b8def]/10 bg-transparent">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-12 max-w-7xl mx-auto gap-8">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<span class="text-slate-400 font-medium font-['Manrope'] tracking-tight">Dataprop</span>
+<p class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500">
+                    © 2026 Universidad Austral · Rosario
+                </p>
+</div>
+<nav class="flex gap-8">
+<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] font-bold text-[#5b8def] hover:text-slate-200 transition-colors" href="index.html">Inicio</a>
+<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500 hover:text-slate-200 transition-colors" href="demo.html">Demo</a>
+<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500 hover:text-slate-200 transition-colors" href="nosotros.html">Nosotros</a>
+</nav>
+</div>
+</footer>
+<div class="vignette fixed inset-0 pointer-events-none"></div>
+</body></html>

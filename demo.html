@@ -1,0 +1,293 @@
+<!-- Demo - Dataprop -->
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dataprop · Demo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,wght@0,400;1,400;1,700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+  body {
+    background-color: #0a0e14;
+    background-image:
+      linear-gradient(rgba(91, 141, 239, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91, 141, 239, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    min-height: 100vh;
+  }
+  .glass-card {
+    background: rgba(16, 20, 21, 0.5);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(91, 141, 239, 0.18);
+  }
+  .premium-card {
+    border: 1px solid rgba(91, 141, 239, 0.5);
+    box-shadow: 0 0 40px rgba(91, 141, 239, 0.15);
+  }
+  .pill-btn {
+    background: #5b8def;
+    color: #001b40;
+    transition: all .25s;
+    border: 0;
+    cursor: pointer;
+  }
+  .pill-btn:hover { background: #a8c8ff; transform: translateY(-1px); }
+  .pill-ghost {
+    background: rgba(91, 141, 239, 0.12);
+    color: #5b8def;
+    border: 1px solid rgba(91, 141, 239, 0.5);
+    backdrop-filter: blur(8px);
+    transition: all .25s;
+    cursor: pointer;
+  }
+  .pill-ghost:hover { background: #5b8def; color: #001b40; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 500; }
+  .zone-card .media-bg { transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+  .zone-card:hover .media-bg { transform: scale(1.04); }
+  .badge-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: #5b8def;
+  }
+
+  /* Modal */
+  .video-modal {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(24px);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  .video-modal.active { display: flex; }
+  .video-modal__content {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+  }
+  .video-modal__video {
+    width: 100%;
+    max-height: 80vh;
+    background: #000;
+    border-radius: 1rem;
+    border: 1px solid rgba(91, 141, 239, 0.3);
+    box-shadow: 0 0 80px rgba(91, 141, 239, 0.2);
+  }
+  .video-modal__title {
+    font-family: 'Manrope', sans-serif;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  .video-modal__close {
+    position: absolute;
+    top: -3.2rem; right: 0;
+    width: 2.6rem; height: 2.6rem;
+    border-radius: 9999px;
+    background: rgba(91, 141, 239, 0.18);
+    border: 1px solid rgba(91, 141, 239, 0.5);
+    color: #5b8def;
+    cursor: pointer;
+    display: flex;
+    align-items: center; justify-content: center;
+    transition: all .2s;
+  }
+  .video-modal__close:hover {
+    background: #5b8def; color: #001b40;
+  }
+</style>
+</head>
+<body class="text-slate-100 selection:bg-[#5b8def] selection:text-[#001b40]">
+
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-slate-950/70 backdrop-blur-xl border-b border-[#5b8def]/10">
+  <div class="flex justify-between items-center w-full max-w-7xl mx-auto px-6 md:px-12 h-20">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-[#5b8def]">analytics</span>
+      <span class="text-2xl font-black text-slate-50 tracking-tighter font-['Manrope']">Dataprop</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-8 font-['Manrope']">
+      <a class="text-slate-300 font-medium hover:text-[#5b8def] transition-all" href="index.html">Inicio</a>
+      <a class="text-[#5b8def] border-b-2 border-[#5b8def] pb-1 font-medium" href="demo.html">Demo</a>
+      <a class="text-slate-300 font-medium hover:text-[#5b8def] transition-all" href="demo_app.mp4" target="_blank">Demo app</a>
+      <a class="text-slate-300 font-medium hover:text-[#5b8def] transition-all" href="nosotros.html">Nosotros</a>
+    </nav>
+    <button class="md:hidden text-[#5b8def]"><span class="material-symbols-outlined">menu</span></button>
+  </div>
+</header>
+
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+
+  <!-- Hero header -->
+  <section class="mb-12">
+    <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 border-b border-[#5b8def]/10 pb-10">
+      <div>
+        <span class="text-[10px] font-bold uppercase tracking-[0.32em] text-[#5b8def]">DEMO · CASOS REALES</span>
+        <h1 class="font-['Manrope'] text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-[-0.04em] mt-3 leading-[0.92]">
+          Cinco zonas.<br>
+          <span class="font-['Newsreader'] italic font-normal text-[#5b8def]">Cinco historias.</span>
+        </h1>
+      </div>
+      <p class="text-slate-400 text-sm md:text-base max-w-xs leading-relaxed">Departamentos del Distrito Centro de Rosario. Hacé click en "Ver demo" para reproducir el caso.</p>
+    </div>
+  </section>
+
+  <!-- Bento Grid · Row 1: Pichincha (big) + Río (premium vertical) -->
+  <section class="grid grid-cols-12 gap-4 mb-4">
+
+    <!-- Pichincha · BIG -->
+    <article class="col-span-12 md:col-span-8 zone-card group">
+      <div class="relative aspect-[16/10] rounded-2xl overflow-hidden glass-card">
+        <img class="media-bg absolute inset-0 w-full h-full object-cover" src="pichincha.jpg" alt="Pichincha · Rosario"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20 pointer-events-none"></div>
+        <div class="absolute top-6 left-6 right-6 flex justify-between items-start">
+          <span class="badge-num">01</span>
+          <button class="pill-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-extrabold uppercase text-[11px] tracking-[0.16em]" onclick="openVideoModal('demo_pichincha.mp4','Pichincha · Demo')">
+            <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">play_arrow</span>
+            Ver demo
+          </button>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <h2 class="font-['Manrope'] text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-[-0.03em] leading-none">Pichincha</h2>
+          <p class="font-['Newsreader'] italic text-lg md:text-xl text-[#a8c8ff] mt-2">Barrio histórico · gastronómico</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Zona Río · PREMIUM vertical -->
+    <article class="col-span-12 md:col-span-4 zone-card group">
+      <div class="relative h-full min-h-[300px] md:aspect-auto rounded-2xl overflow-hidden premium-card">
+        <img class="media-bg absolute inset-0 w-full h-full object-cover" src="zona-rio.jpg" alt="Zona Río · Puerto Norte · Rosario"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-[#001b40]/40 to-black/30 pointer-events-none"></div>
+        <div class="absolute top-6 left-6 right-6 flex justify-between items-center">
+          <span class="badge-num">02</span>
+          <span class="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#001b40] bg-[#5b8def] px-3 py-1 rounded-full">Premium</span>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <h2 class="font-['Manrope'] text-3xl md:text-4xl font-black text-white tracking-[-0.03em] leading-none">Zona Río</h2>
+          <p class="font-['Newsreader'] italic text-base text-[#a8c8ff] mt-2">Frente al Paraná · Puerto Norte</p>
+          <button class="pill-btn inline-flex items-center gap-2 px-4 py-2 rounded-full font-extrabold uppercase text-[10px] tracking-[0.16em] mt-4" onclick="openVideoModal('demo_rio.mp4','Zona Río · Demo')">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">play_arrow</span>
+            Ver demo
+          </button>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Bento Grid · Row 2: Terminal · Martin · Sexta -->
+  <section class="grid grid-cols-12 gap-4">
+
+    <!-- Zona Terminal -->
+    <article class="col-span-12 md:col-span-4 zone-card group">
+      <div class="relative aspect-[4/3] rounded-2xl overflow-hidden glass-card">
+        <img class="media-bg absolute inset-0 w-full h-full object-cover" src="terminal.jpg" alt="Zona Terminal · Rosario"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent pointer-events-none"></div>
+        <div class="absolute top-5 left-5 right-5 flex justify-between items-start">
+          <span class="badge-num">03</span>
+          <button class="pill-ghost inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full font-extrabold uppercase text-[10px] tracking-[0.16em]" onclick="openVideoModal('demo_terminal.mp4','Zona Terminal · Demo')">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">play_arrow</span>
+            Ver demo
+          </button>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <h2 class="font-['Manrope'] text-2xl md:text-3xl font-black text-white tracking-[-0.03em]">Zona Terminal</h2>
+          <p class="font-['Newsreader'] italic text-sm text-[#a8c8ff] mt-1">Conectividad · tránsito</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Zona Martin -->
+    <article class="col-span-12 md:col-span-4 zone-card group">
+      <div class="relative aspect-[4/3] rounded-2xl overflow-hidden glass-card">
+        <img class="media-bg absolute inset-0 w-full h-full object-cover" src="martin.jpg" alt="Zona Martin · Rosario"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent pointer-events-none"></div>
+        <div class="absolute top-5 left-5 right-5 flex justify-between items-start">
+          <span class="badge-num">04</span>
+          <button class="pill-ghost inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full font-extrabold uppercase text-[10px] tracking-[0.16em]" onclick="openVideoModal('demo_martin.mp4','Zona Martin · Demo')">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">play_arrow</span>
+            Ver demo
+          </button>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <h2 class="font-['Manrope'] text-2xl md:text-3xl font-black text-white tracking-[-0.03em]">Zona Martin</h2>
+          <p class="font-['Newsreader'] italic text-sm text-[#a8c8ff] mt-1">Residencial consolidado</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- República de la 6ta -->
+    <article class="col-span-12 md:col-span-4 zone-card group">
+      <div class="relative aspect-[4/3] rounded-2xl overflow-hidden glass-card">
+        <img class="media-bg absolute inset-0 w-full h-full object-cover" src="la-sexta.jpg" alt="República de la 6ta · Rosario"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent pointer-events-none"></div>
+        <div class="absolute top-5 left-5 right-5 flex justify-between items-start">
+          <span class="badge-num">05</span>
+          <button class="pill-ghost inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full font-extrabold uppercase text-[10px] tracking-[0.16em]" onclick="openVideoModal('demo_sexta.mp4','República de la 6ta · Demo')">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">play_arrow</span>
+            Ver demo
+          </button>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <h2 class="font-['Manrope'] text-2xl md:text-3xl font-black text-white tracking-[-0.03em]">República de la 6ta</h2>
+          <p class="font-['Newsreader'] italic text-sm text-[#a8c8ff] mt-1">Zona universitaria</p>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<!-- Video Modal -->
+<div class="video-modal" id="videoModal" role="dialog" aria-modal="true">
+  <div class="video-modal__content">
+    <button class="video-modal__close" onclick="closeVideoModal()" aria-label="Cerrar">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="video-modal__title" id="videoModalTitle">Demo</div>
+    <video class="video-modal__video" id="videoModalPlayer" controls playsinline></video>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="border-t border-[#5b8def]/10 mt-20">
+  <div class="flex flex-col md:flex-row justify-between items-center py-12 px-12 max-w-7xl mx-auto gap-4">
+    <div class="text-slate-400 font-medium font-['Manrope']">Dataprop</div>
+    <div class="flex gap-6 font-['Manrope']">
+      <a class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500 hover:text-slate-200" href="index.html">Inicio</a>
+      <a class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#5b8def]" href="demo.html">Demo</a>
+      <a class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500 hover:text-slate-200" href="demo_app.mp4" target="_blank">Demo app</a>
+      <a class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500 hover:text-slate-200" href="nosotros.html">Nosotros</a>
+    </div>
+    <div class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500">© 2026 Universidad Austral · Rosario</div>
+  </div>
+</footer>
+
+<script>
+  const $modal = document.getElementById('videoModal');
+  const $modalVideo = document.getElementById('videoModalPlayer');
+  const $modalTitle = document.getElementById('videoModalTitle');
+
+  function openVideoModal(src, title) {
+    $modalVideo.src = src;
+    $modalTitle.textContent = title || 'Demo';
+    $modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    $modalVideo.play().catch(() => {});
+  }
+  function closeVideoModal() {
+    $modalVideo.pause();
+    $modalVideo.removeAttribute('src');
+    $modalVideo.load();
+    $modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  // ESC para cerrar
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
+  // click fuera del contenido para cerrar
+  $modal.addEventListener('click', e => { if (e.target === $modal) closeVideoModal(); });
+</script>
+</body></html>
